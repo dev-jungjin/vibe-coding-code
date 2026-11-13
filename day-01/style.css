@@ -1,0 +1,477 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+/* ==========================================================================
+   1. CSS 변수 및 디자인 토큰 (GS Retail / 우리동네GS 명세서 기반)
+   ========================================================================== */
+:root {
+  /* Core Colors */
+  --primary-dark: #1e2530;       /* 기본 다크, 주요 버튼 및 타이틀 */
+  --signature-cyan: #00d4ea;     /* GS25 시그니처 청록 (강조 및 뱃지) */
+  --white: #ffffff;              /* 카드 및 버튼 전경색 */
+
+  /* Neutral Ramp */
+  --neutral-50: #f4f5fb;         /* 페이지 배경색 */
+  --neutral-200: #d6d9e1;        /* 카드 테두리 및 구분선 */
+  --neutral-300: #c0c4cd;        /* 보조 테두리 */
+  --neutral-600: #515160;        /* 보조 설명 텍스트 */
+
+  /* Layout & Geometry */
+  --font-sans: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --radius-card: 18px;
+  --radius-pill: 9999px;
+  --transition-smooth: all 0.25s ease;
+}
+
+/* ==========================================================================
+   2. 기본 리셋 및 글로벌 스타일
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--neutral-50);
+  color: var(--primary-dark);
+  line-height: 1.55;
+  letter-spacing: -0.02em;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   3. 모바일 퍼스트 레이아웃 (기본 스타일: 스마트폰 화면 기준)
+   ========================================================================== */
+.page-wrapper {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 20px 16px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.responsive-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.sidebar-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.content-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+/* ==========================================================================
+   4. 카드 공통 컴포넌트
+   ========================================================================== */
+.card {
+  background: var(--white);
+  border: 1px solid var(--neutral-200);
+  border-radius: var(--radius-card);
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(30, 37, 48, 0.04);
+  transition: var(--transition-smooth);
+}
+
+/* 프로필 메인 카드 */
+.profile-card {
+  text-align: center;
+  padding: 28px 20px 24px;
+}
+
+.profile-avatar-wrapper {
+  position: relative;
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 16px;
+}
+
+.profile-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--white);
+  box-shadow: 0 4px 14px rgba(30, 37, 48, 0.12);
+}
+
+.status-badge {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 22px;
+  height: 22px;
+  background-color: var(--signature-cyan);
+  border: 2px solid var(--white);
+  border-radius: 50%;
+}
+
+.profile-name {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--primary-dark);
+  margin-bottom: 6px;
+}
+
+.profile-tagline {
+  font-size: 14px;
+  color: var(--neutral-600);
+  margin-bottom: 14px;
+  font-weight: 500;
+}
+
+/* 태그 & 뱃지 (Pill) */
+.badge-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  font-weight: 700;
+  border: 1px solid transparent;
+}
+
+.pill-cyan {
+  background-color: rgba(0, 212, 234, 0.15);
+  color: #007b89;
+  border-color: rgba(0, 212, 234, 0.3);
+}
+
+.pill-dark {
+  background-color: var(--primary-dark);
+  color: var(--white);
+}
+
+.pill-gray {
+  background-color: var(--neutral-50);
+  color: var(--neutral-600);
+  border-color: var(--neutral-200);
+}
+
+/* 액션 카드 */
+.action-card {
+  padding: 16px 20px;
+}
+
+.action-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn-primary {
+  width: 100%;
+  background-color: var(--primary-dark);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 14px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  transition: var(--transition-smooth);
+}
+
+.btn-primary:hover {
+  background-color: #12171f;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  width: 100%;
+  background-color: transparent;
+  color: var(--primary-dark);
+  border: 1.5px solid var(--neutral-300);
+  border-radius: var(--radius-pill);
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  transition: var(--transition-smooth);
+}
+
+.btn-secondary:hover {
+  background-color: var(--neutral-50);
+}
+
+/* ==========================================================================
+   5. 상세 정보 및 갤러리 섹션
+   ========================================================================== */
+.section-header {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-header::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 16px;
+  background-color: var(--signature-cyan);
+  border-radius: 2px;
+}
+
+.section-desc {
+  font-size: 13px;
+  color: var(--neutral-600);
+  margin-bottom: 14px;
+}
+
+.info-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--neutral-50);
+}
+
+.info-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.info-row:first-child {
+  padding-top: 0;
+}
+
+.info-label {
+  font-size: 14px;
+  color: var(--neutral-600);
+  font-weight: 600;
+}
+
+.info-value {
+  font-size: 14px;
+  color: var(--primary-dark);
+  font-weight: 700;
+}
+
+.hobby-chips {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   도서(책) 그리드 및 카드 스타일
+   ========================================================================== */
+.books-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.book-card {
+  background: var(--neutral-50);
+  border: 1px solid var(--neutral-200);
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition-smooth);
+}
+
+.book-cover-wrapper {
+  width: 100%;
+  height: 180px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-bottom: 1px solid var(--neutral-200);
+}
+
+.book-cover {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px rgba(30, 37, 48, 0.12);
+}
+
+.book-info {
+  padding: 12px 14px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.book-tag {
+  align-self: flex-start;
+  font-size: 11px;
+  font-weight: 700;
+  color: #007b89;
+  background-color: rgba(0, 212, 234, 0.12);
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+}
+
+.book-title {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--primary-dark);
+  line-height: 1.35;
+  margin-top: 2px;
+}
+
+.book-author {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--neutral-600);
+}
+
+.book-desc {
+  font-size: 11px;
+  color: #6c727f;
+  line-height: 1.45;
+  margin-top: 4px;
+}
+
+/* 반려동물 그리드 */
+.pets-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.pet-card {
+  background: var(--neutral-50);
+  border: 1px solid var(--neutral-200);
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition-smooth);
+}
+
+.pet-img {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+}
+
+.pet-info {
+  padding: 10px 12px 12px;
+  text-align: center;
+}
+
+.pet-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 2px;
+}
+
+.pet-desc {
+  font-size: 12px;
+  color: var(--neutral-600);
+}
+
+/* 푸터 */
+.page-footer {
+  text-align: center;
+  font-size: 12px;
+  color: var(--neutral-600);
+  padding: 12px 0;
+}
+
+/* ==========================================================================
+   6. 태블릿 및 데스크톱 반응형 확장 (@media min-width: 768px)
+   ========================================================================== */
+@media (min-width: 768px) {
+  .page-wrapper {
+    max-width: 960px;
+    padding: 48px 24px 60px;
+    gap: 28px;
+  }
+
+  /* 모바일 세로 1열 -> PC 좌우 2열 그리드 전환 */
+  .responsive-layout {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+
+  /* 좌측 사이드바 컬럼 (스크롤 시 고정) */
+  .sidebar-column {
+    position: sticky;
+    top: 32px;
+  }
+
+  /* 데스크톱 카드 여백 및 호버 효과 강화 */
+  .card {
+    padding: 24px;
+  }
+
+  .card:hover {
+    box-shadow: 0 8px 24px rgba(30, 37, 48, 0.08);
+    transform: translateY(-2px);
+  }
+
+  .pet-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(30, 37, 48, 0.06);
+  }
+
+  .book-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(30, 37, 48, 0.08);
+  }
+
+  .book-cover-wrapper {
+    height: 200px;
+  }
+
+  .pet-img {
+    height: 160px;
+  }
+}
+
+/* ==========================================================================
+   7. 초소형 모바일 기기 대응 (@media max-width: 360px)
+   ========================================================================== */
+@media (max-width: 360px) {
+  .pets-grid,
+  .books-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .info-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+}

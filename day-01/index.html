@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>양준렬 | 프로그래머 & 강사 소개 (반응형 웹)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="page-wrapper">
+    <div class="responsive-layout">
+      
+      <!-- 좌측 컬럼: 프로필 메인 카드 & 액션 버튼 (모바일: 상단 / PC: 좌측 고정) -->
+      <aside class="sidebar-column">
+        <section class="card profile-card">
+          <div class="profile-avatar-wrapper">
+            <img src="images/profile.jpg" alt="양준렬 프로필 사진" class="profile-avatar">
+            <span class="status-badge" title="활동 중"></span>
+          </div>
+          <h1 class="profile-name">양준렬</h1>
+          <p class="profile-tagline">가장 쉽게 프로그래밍을 알려드립니다.</p>
+          
+          <div class="badge-group">
+            <span class="pill pill-cyan">프로그래머</span>
+            <span class="pill pill-dark">AI 풀스택 강사</span>
+          </div>
+        </section>
+
+        <!-- 액션 버튼 -->
+        <section class="card action-card">
+          <div class="action-group">
+            <a href="mailto:contact@example.com" class="btn-primary">강의 및 프로젝트 문의하기</a>
+            <button type="button" class="btn-secondary" onclick="alert('1일차 반응형 웹페이지에 오신 것을 환영합니다!')">소개 링크 복사하기</button>
+          </div>
+        </section>
+      </aside>
+
+      <!-- 우측 컬럼: 상세 정보 & 갤러리 (모바일: 하단 / PC: 우측 메인) -->
+      <section class="content-column">
+        <!-- 기본 정보 & 취미 카드 -->
+        <article class="card">
+          <h2 class="section-header">기본 정보 & 일상</h2>
+          
+          <div class="info-row">
+            <span class="info-label">직업</span>
+            <span class="info-value">소프트웨어 개발자 / IT 강사</span>
+          </div>
+
+          <div class="info-row">
+            <span class="info-label">좋아하는 음식</span>
+            <span class="info-value">백반, 수육</span>
+          </div>
+
+          <div class="info-row">
+            <span class="info-label">최근 읽은 책</span>
+            <span class="info-value">AI 에이전트 엔지니어링, 사고외주</span>
+          </div>
+
+          <div class="info-row">
+            <span class="info-label">취미 활동</span>
+            <div class="hobby-chips">
+              <span class="pill pill-gray">자전거</span>
+              <span class="pill pill-gray">뮤지컬 관람</span>
+              <span class="pill pill-gray">여행</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 최근 읽은 책 (독서 서재) 카드 -->
+        <article class="card">
+          <h2 class="section-header">최근 읽은 책</h2>
+          <p class="section-desc">
+            AI 에이전트 개발과 기술 철학에 관한 책들을 집중적으로 읽고 있습니다.
+          </p>
+
+          <div class="books-grid">
+            <article class="book-card">
+              <div class="book-cover-wrapper">
+                <img src="images/book-ai-agent.jpg" alt="AI 에이전트 엔지니어링 표지" class="book-cover">
+              </div>
+              <div class="book-info">
+                <div class="book-tag">O'REILLY</div>
+                <h3 class="book-title">AI 에이전트 엔지니어링</h3>
+                <div class="book-author">마이클 알바다 지음 · 한빛미디어</div>
+                <p class="book-desc">단일 에이전트부터 멀티 에이전트 시스템까지, AI 앱 개발 올인원 가이드</p>
+              </div>
+            </article>
+
+            <article class="book-card">
+              <div class="book-cover-wrapper">
+                <img src="images/book-thinking-outsourced.png" alt="사고외주 표지" class="book-cover">
+              </div>
+              <div class="book-info">
+                <div class="book-tag">철학 & 인사이트</div>
+                <h3 class="book-title">사고외주 (思考外注)</h3>
+                <div class="book-author">홍진기 지음 (연세대 교수)</div>
+                <p class="book-desc">생각하지 않는 인간의 출현, AI 시대 '똑똑한 무능함'에 빠진 우리를 향한 경고</p>
+              </div>
+            </article>
+          </div>
+        </article>
+
+        <!-- 특이사항 & 반려동물 카드 -->
+        <article class="card">
+          <h2 class="section-header">특이사항 (함께 사는 가족)</h2>
+          <p class="section-desc">
+            강아지와 고양이를 한 마리씩 기르고 있습니다.
+          </p>
+
+          <div class="pets-grid">
+            <article class="pet-card">
+              <img src="images/cat.jpg" alt="고양이 사진" class="pet-img">
+              <div class="pet-info">
+                <div class="pet-title">반려묘</div>
+                <div class="pet-desc">잠자는 순둥이 고양이</div>
+              </div>
+            </article>
+
+            <article class="pet-card">
+              <img src="images/dog.jpg" alt="강아지 사진" class="pet-img">
+              <div class="pet-info">
+                <div class="pet-title">반려견</div>
+                <div class="pet-desc">산책을 좋아하는 갈색 푸들</div>
+              </div>
+            </article>
+          </div>
+        </article>
+      </section>
+
+    </div>
+
+    <footer class="page-footer">
+      Claude AI 기반 바이브코딩 풀스택 웹개발 · 1일차 모바일 퍼스트 반응형 웹페이지
+    </footer>
+  </main>
+
+</body>
+</html>
