@@ -1,0 +1,32 @@
+// 5일차 초안 스키마입니다.
+// 이 파일은 아직 Prisma Client 를 생성하거나 데이터베이스에 적용하지 않습니다.
+// 6일차에 Supabase(PostgreSQL) 와 연결한 뒤 `npx prisma migrate` 로 반영합니다.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// 게시글 한 행의 설계도입니다.
+// src/types/post.ts, src/lib/mockStore.ts 의 필드와 이름을 맞춰 두었습니다.
+model Post {
+  id        String   @id @default(cuid())
+  title     String
+  content   String
+  author    String
+  category  String   @default("일반")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // 6일차에 추가할 예정:
+  // 익명 게시판에서 수정·삭제 시 본인 확인을 위한 비밀번호 해시.
+  // passwordHash String?
+}
+
+// 이후 회차에서 확장할 모델의 자리입니다. 지금은 주석으로만 남겨 둡니다.
+// model User { ... }          // 9일차 인증
+// model Comment { ... }       // 2개월차 댓글

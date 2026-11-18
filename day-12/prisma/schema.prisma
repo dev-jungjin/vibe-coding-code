@@ -1,0 +1,50 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Post {
+  id           String   @id @default(cuid())
+  title        String
+  content      String
+  authorName   String
+  passwordHash String?
+  authorId     String?
+  authorEmail  String?
+  isHidden     Boolean  @default(false)
+  viewCount    Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+model UserProfile {
+  id        String   @id
+  email     String   @unique
+  role      Role     @default(USER)
+  createdAt DateTime @default(now())
+}
+
+model BoardStat {
+  id         String   @id @default("singleton")
+  totalPosts Int      @default(0)
+  totalViews Int      @default(0)
+  updatedAt  DateTime @updatedAt
+}
+
+model PostAuditLog {
+  id        String   @id @default(cuid())
+  postId    String
+  action    String
+  summary   String
+  createdAt DateTime @default(now())
+}

@@ -1,0 +1,29 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+@import "tailwindcss";
+
+@theme {
+  --color-primary-dark: #1e2530;
+  --color-signature-cyan: #00d4ea;
+  --color-neutral-50: #f4f5fb;
+  --color-neutral-200: #d6d9e1;
+  --color-neutral-300: #c0c4cd;
+  --color-neutral-600: #515160;
+  --color-cyan-ink: #007b89;
+  --font-sans: "Pretendard Variable", Pretendard, -apple-system, "Apple SD Gothic Neo",
+    system-ui, sans-serif;
+  --radius-card: 18px;
+  --radius-pill: 9999px;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: var(--color-neutral-50);
+  color: var(--color-primary-dark);
+  font-family: var(--font-sans);
+  letter-spacing: -0.02em;
+  line-height: 1.55;
+  min-height: 100vh;
+}
